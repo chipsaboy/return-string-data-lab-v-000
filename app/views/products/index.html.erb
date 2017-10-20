@@ -14,7 +14,12 @@ $(function () {
       $("#description-" + id).text(data);
     });
     $.get("/products/" + id + "/inventory", function(data) {
-      
+      if (data === "true") {
+        data = "Available"
+      } else {
+        data = "Sold Out"
+      }
+      $("inventory-" + id).text(data);
     })
   });
 });
