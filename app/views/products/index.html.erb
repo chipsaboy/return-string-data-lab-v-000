@@ -5,23 +5,17 @@
   <button class="js-more" data-id="<%= product.id %>">More...</button><br>
 <% end %>
 
-
-
-
-
-
-
-
-
-
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
-    $.get("/posts/" + id + "/body", function(data) {
+    $.get("/products/" + id + "/description", function(data) {
       // Replace text of body-id div
-      $("#body-" + id).text(data);
+      $("#description-" + id).text(data);
     });
+    $.get("/products/" + id + "/inventory", function(data) {
+      
+    })
   });
 });
 </script>
